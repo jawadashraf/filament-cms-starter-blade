@@ -16,6 +16,8 @@ class PageController extends Controller
 {
     public function show($slug = 'home')
     {
+        $slug = str_replace(app()->currentLocale().'/', '', $slug);
+
         $page = Page::where('slug->' . app()->currentLocale(), $slug)->firstOrFail();
         $res = $this->render($page);
         return $res;
@@ -23,6 +25,7 @@ class PageController extends Controller
 
     protected function render($page)
     {
+        ds($page);
         $pageData = PageResource::make($page)->toArray(request());
         $pageData['content'] = collect($page['content'])->map(function($content) {
             if ($content['type'] === 'blog_section') {

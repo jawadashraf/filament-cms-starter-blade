@@ -12,8 +12,10 @@
         @routes
         @vite(['resources/js/app.js', "resources/js/Pages/{$page['component']}.vue"])
         @inertiaHead
+        @livewireStyles
     </head>
     <body class="antialiased">
         @inertia
+        @livewireScripts
     </body>
 </html>

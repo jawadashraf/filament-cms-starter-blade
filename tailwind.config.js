@@ -1,8 +1,9 @@
-const animate = require("tailwindcss-animate")
+// const animate = require("tailwindcss-animate")
+import animate from 'tailwindcss-animate';
 import forms from '@tailwindcss/forms';
 
 /** @type {import('tailwindcss').Config} */
-module.exports = {
+export default {
     darkMode: ["class"],
     safelist: [
         {
